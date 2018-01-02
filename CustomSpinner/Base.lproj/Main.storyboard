@@ -1,24 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kXE-4h-xbE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="Pz6-fR-jXX">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="custom_spinner" id="kXE-4h-xbE" customClass="ViewController" customModule="CustomSpinner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J5g-f4-Ps9"/>
+                        <viewControllerLayoutGuide type="bottom" id="qLk-gy-CRC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BGF-dw-s8H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d0U-Lp-0QE">
+                                <rect key="frame" x="30" y="70" width="315" height="0.0"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="lLL-s9-CCn"/>
+                                </constraints>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kXE-4h-xbE" id="Es3-cO-jeE"/>
+                                    <outlet property="delegate" destination="kXE-4h-xbE" id="DzN-Wd-oQz"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KXF-zW-Gqh">
+                                <rect key="frame" x="30" y="30" width="315" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zNS-v9-zhX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                </variation>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="kXE-4h-xbE" eventType="editingChanged" id="eva-k8-Lwd"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-D3-MqX">
+                                <rect key="frame" x="30" y="30" width="315" height="40"/>
+                                <connections>
+                                    <action selector="clicked:" destination="kXE-4h-xbE" eventType="touchUpInside" id="kaW-IQ-Lzz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqe-yx-9lN">
+                                <rect key="frame" x="305" y="35" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6pD-LH-6BY"/>
+                                    <constraint firstAttribute="width" constant="30" id="LDz-jr-L4E"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="ic_spinner_down"/>
+                                <connections>
+                                    <action selector="btnClick:" destination="kXE-4h-xbE" eventType="touchUpInside" id="td0-DA-pb9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KXF-zW-Gqh" firstAttribute="centerX" secondItem="BGF-dw-s8H" secondAttribute="centerX" id="3Zk-15-lL6"/>
+                            <constraint firstItem="8Kf-D3-MqX" firstAttribute="height" secondItem="KXF-zW-Gqh" secondAttribute="height" id="4Em-7j-n85"/>
+                            <constraint firstItem="d0U-Lp-0QE" firstAttribute="trailing" secondItem="KXF-zW-Gqh" secondAttribute="trailing" id="6LU-GS-1kk"/>
+                            <constraint firstItem="8Kf-D3-MqX" firstAttribute="top" secondItem="J5g-f4-Ps9" secondAttribute="bottom" constant="10" id="Jbb-IY-wlm"/>
+                            <constraint firstItem="8Kf-D3-MqX" firstAttribute="centerY" secondItem="KXF-zW-Gqh" secondAttribute="centerY" id="Ph3-yB-ktx"/>
+                            <constraint firstItem="8Kf-D3-MqX" firstAttribute="centerX" secondItem="KXF-zW-Gqh" secondAttribute="centerX" id="Q6a-oe-vNG"/>
+                            <constraint firstItem="8Kf-D3-MqX" firstAttribute="width" secondItem="KXF-zW-Gqh" secondAttribute="width" id="S9T-jC-Y6K"/>
+                            <constraint firstAttribute="trailing" secondItem="KXF-zW-Gqh" secondAttribute="trailing" constant="30" id="W3r-Ue-sY1"/>
+                            <constraint firstItem="kqe-yx-9lN" firstAttribute="centerY" secondItem="8Kf-D3-MqX" secondAttribute="centerY" id="XQS-Oq-pqY"/>
+                            <constraint firstItem="kqe-yx-9lN" firstAttribute="trailing" secondItem="8Kf-D3-MqX" secondAttribute="trailing" constant="-10" id="gK7-X0-v2y"/>
+                            <constraint firstItem="d0U-Lp-0QE" firstAttribute="leading" secondItem="KXF-zW-Gqh" secondAttribute="leading" id="h6H-eq-Jdc"/>
+                            <constraint firstItem="KXF-zW-Gqh" firstAttribute="top" secondItem="J5g-f4-Ps9" secondAttribute="bottom" constant="10" id="ihz-BL-MNJ"/>
+                            <constraint firstItem="KXF-zW-Gqh" firstAttribute="leading" secondItem="BGF-dw-s8H" secondAttribute="leading" constant="30" id="jn6-Ul-ZYi"/>
+                            <constraint firstItem="d0U-Lp-0QE" firstAttribute="top" secondItem="KXF-zW-Gqh" secondAttribute="bottom" id="uLS-0O-b89"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yFh-q9-seE"/>
                     </view>
+                    <connections>
+                        <outlet property="btn" destination="8Kf-D3-MqX" id="vLJ-uz-qbQ"/>
+                        <outlet property="downBtn" destination="kqe-yx-9lN" id="dXo-N7-CqL"/>
+                        <outlet property="heightConstraint" destination="lLL-s9-CCn" id="Q6X-jK-m01"/>
+                        <outlet property="tableView" destination="d0U-Lp-0QE" id="sI5-oL-CZ2"/>
+                        <outlet property="textField" destination="KXF-zW-Gqh" id="3lS-6D-WGe"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yZI-Z7-a3B" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="442" y="-22"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_spinner_down" width="36" height="36"/>
+    </resources>
 </document>
