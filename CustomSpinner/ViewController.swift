@@ -31,6 +31,8 @@ class ViewController: UIViewController , UITextFieldDelegate, UITableViewDataSou
             tableView.dataSource = self
             textField.delegate = self
             
+            tableView.layer.cornerRadius = 8
+            
             tableView.isHidden = true
             
             textField.text = "Telenor"
@@ -106,6 +108,9 @@ class ViewController: UIViewController , UITextFieldDelegate, UITableViewDataSou
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
+            
+            cell.selectionStyle = .none
+            
             // Set text from the data model
             cell.textLabel?.text = operatorList[indexPath.row]
             return cell
